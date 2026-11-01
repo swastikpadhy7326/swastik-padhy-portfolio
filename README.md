@@ -97,3 +97,45 @@
 <p align="center">
   ⭐️ <i>Feel free to star my repositories if you find my work interesting!</i> ⭐️
 </p>
+<div align="center">
+
+  <!-- HERO CAPSULE BANNER -->
+  <img src="https://capsule-render.vercel.app/api?type=waving&color=gradient&customColorList=6,11,21&height=220&section=header&text=Swastik%20Padhy&fontSize=52&fontAlignY=36&animation=twinkling&desc=Software%20Engineer%20%7C%20Full-Stack%20Web%20Developer%20%7C%20Systems%20Builder&descAlignY=58&descSize=20" width="100%" alt="Swastik Padhy Banner" />
+
+  <!-- DYNAMIC TYPING SVG -->
+  <a href="https://github.com/swastikpadhy7326">
+    <img src="https://readme-typing-svg.demolab.com?font=Fira+Code&weight=600&size=20&pause=1000&color=00F0FF&background=0D111700&center=true&vCenter=true&width=650&lines=🚀+Full-Stack+Engineer+Crafting+Scalable+Web+Systems;⚡+Specializing+in+MERN+Stack+%26+Python%2FFlask+APIs;🧠+Architecting+Aura+AI+Workspace+%26+MeritUs;🤝+Agile+Collaborator+in+Cross-Functional+Teams;🎯+Open+for+Summer%2FFall+Developer+Internships+2025-26" alt="Typing SVG Animation" />
+  </a>
+
+  <br/>
+
+  <!-- QUICK ACTION BADGES & LIVE PROFILE STATS -->
+  <p align="center">
+    <a href="https://linkedin.com/in/swastik-padhy-51a84534b" target="_blank">
+      <img src="https://img.shields.io/badge/LinkedIn-Connect-0077B5?style=for-the-badge&logo=linkedin&logoColor=white" alt="LinkedIn" />
+    </a>
+    <a href="mailto:swastikpadhy0@gmail.com?subject=Opportunity%20Discussion%20-%20Software%20Engineer%20Role">
+      <img src="https://img.shields.io/badge/Email-Direct%20Inquiry-EA4335?style=for-the-badge&logo=gmail&logoColor=white" alt="Email" />
+    </a>
+    <a href="https://github.com/swastikpadhy7326">
+      <img src="https://img.shields.io/badge/GitHub-swastikpadhy7326-181717?style=for-the-badge&logo=github&logoColor=white" alt="GitHub" />
+    </a>
+    <a href="https://komarev.com/ghpvc/?username=swastikpadhy7326&label=Profile%20Views&color=00F0FF&style=for-the-badge">
+      <img src="https://komarev.com/ghpvc/?username=swastikpadhy7326&label=Profile%20Views&color=00F0FF&style=for-the-badge" alt="Profile Views" />
+    </a>
+  </p>
+
+</div>
+
+---
+
+### 📌 Recruiter & Interviewer Snapshot (TL;DR)
+
+```yaml
+Candidate: Swastik Padhy
+Target Roles: Software Development Engineer Intern (SDE) | Full-Stack Web Developer | Backend Engineer
+Availability: Summer 2025 / Fall 2025 / Full-Year 2026
+Location: Berhampur, Odisha, India (Open to Relocation & Remote worldwide)
+Education: B.Tech Computer Science & Engineering @ NIST University (2024–2028)
+Primary Arsenal: React, TypeScript, Node.js, Express, MongoDB, Python, Flask, Docker
+Engineering Philosophy: Clean Architecture, Idempotent APIs, Latency Optimization, Strong Testing
