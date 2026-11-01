@@ -55,15 +55,18 @@ export default function Navbar({ onOpenResume }: NavbarProps) {
     >
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex items-center justify-between">
         
-        {/* Brand Logo */}
+        {/* Brand Logo with User Portrait */}
         <a
           href="#"
           className="flex items-center gap-3 group focus:outline-none"
         >
-          <div className="w-10 h-10 rounded-xl bg-[#141414] border border-[#2a2a2a] p-0.5 group-hover:border-[#4ADE80] transition-colors flex items-center justify-center">
-            <span className="font-display font-black text-sm text-[#4ADE80] tracking-tighter">
-              SP
-            </span>
+          <div className="relative w-10 h-10 rounded-full p-0.5 bg-gradient-to-tr from-[#00C3FF] to-[#4ADE80] shadow-[0_0_12px_rgba(0,195,255,0.4)] group-hover:scale-105 transition-transform duration-200">
+            <img
+              src={personalInfo.avatarUrl || "/assets/aistudio/portfolio_photo_61c5f2ec.jpeg"}
+              alt={personalInfo.name}
+              className="w-full h-full object-cover rounded-full"
+            />
+            <span className="absolute bottom-0 right-0 w-2.5 h-2.5 rounded-full bg-[#4ADE80] border-2 border-[#080808]" />
           </div>
           <div>
             <div className="font-display font-black text-white tracking-tight group-hover:text-[#4ADE80] transition-colors flex items-center gap-1.5 text-base uppercase">

@@ -1,13 +1,23 @@
+import { motion } from 'motion/react';
 import { educationList, certifications } from '../data/portfolioData';
-import { GraduationCap, Award, Calendar, CheckCircle2, ShieldCheck, BookOpen, School } from 'lucide-react';
+import { GraduationCap, Award, Calendar, ShieldCheck, School } from 'lucide-react';
 
 export default function EducationCertifications() {
   return (
-    <section id="education" className="py-16 md:py-24 border-b border-[#222222] relative">
+    <section id="education" className="py-16 md:py-24 border-b border-[#222222] relative overflow-hidden">
+      {/* Background Subtle Ambient Glow */}
+      <div className="absolute top-1/3 left-10 w-80 h-80 bg-[#00C3FF]/5 blur-[140px] rounded-full pointer-events-none -z-10" />
+
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         
         {/* Section Header */}
-        <div className="flex flex-col items-center text-center mb-12">
+        <motion.div 
+          initial={{ opacity: 0, y: 25 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.5 }}
+          className="flex flex-col items-center text-center mb-12"
+        >
           <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full text-xs font-bold uppercase font-mono tracking-wider bg-[#141414] text-[#4ADE80] border border-[#222222] mb-3">
             <GraduationCap className="w-3.5 h-3.5" />
             <span>04 // Academic Track</span>
@@ -18,7 +28,7 @@ export default function EducationCertifications() {
           <p className="text-sm sm:text-base text-[#999999] max-w-2xl mt-3">
             Rigorous undergraduate computer science engineering foundation paired with continuous specialized technical certifications.
           </p>
-        </div>
+        </motion.div>
 
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-8">
           
@@ -31,8 +41,13 @@ export default function EducationCertifications() {
 
             <div className="space-y-4">
               {educationList.map((edu, idx) => (
-                <div
+                <motion.div
                   key={idx}
+                  initial={{ opacity: 0, x: -20 }}
+                  whileInView={{ opacity: 1, x: 0 }}
+                  viewport={{ once: true }}
+                  transition={{ duration: 0.4, delay: idx * 0.1 }}
+                  whileHover={{ y: -3, borderColor: "#4ADE80" }}
                   className={`p-6 rounded-2xl border transition-all ${
                     edu.current
                       ? 'bg-[#121212] border-[#4ADE80]/50 shadow-lg shadow-[#4ADE80]/5'
@@ -45,7 +60,7 @@ export default function EducationCertifications() {
                       {edu.year}
                     </span>
                     {edu.current && (
-                      <span className="px-2.5 py-0.5 rounded-full text-[11px] font-bold uppercase font-mono bg-[#181818] text-[#4ADE80] border border-[#4ADE80]/30">
+                      <span className="px-2.5 py-0.5 rounded-full text-[11px] font-bold uppercase font-mono bg-[#181818] text-[#4ADE80] border border-[#4ADE80]/30 animate-pulse">
                         Currently Enrolled
                       </span>
                     )}
@@ -72,7 +87,7 @@ export default function EducationCertifications() {
                       ))}
                     </div>
                   )}
-                </div>
+                </motion.div>
               ))}
             </div>
           </div>
@@ -80,26 +95,31 @@ export default function EducationCertifications() {
           {/* Certifications (Right Column - 6 cols) */}
           <div id="certifications" className="lg:col-span-6 space-y-6">
             <div className="flex items-center gap-2.5 pb-3 border-b border-[#222222]">
-              <Award className="w-5 h-5 text-[#4ADE80]" />
+              <Award className="w-5 h-5 text-[#00C3FF]" />
               <h3 className="text-xl font-bold uppercase font-display text-white">Certifications & Accreditations</h3>
             </div>
 
             <div className="space-y-4">
               {certifications.map((cert, idx) => (
-                <div
+                <motion.div
                   key={idx}
-                  className="p-6 rounded-2xl bg-[#121212] border border-[#222222] hover:border-[#4ADE80] transition-all space-y-3"
+                  initial={{ opacity: 0, x: 20 }}
+                  whileInView={{ opacity: 1, x: 0 }}
+                  viewport={{ once: true }}
+                  transition={{ duration: 0.4, delay: idx * 0.1 }}
+                  whileHover={{ y: -3, borderColor: "#00C3FF" }}
+                  className="p-6 rounded-2xl bg-[#121212] border border-[#222222] transition-all space-y-3 shadow-lg"
                 >
                   <div className="flex items-start justify-between gap-3">
                     <div>
-                      <span className="text-[10px] uppercase font-bold tracking-wider text-[#4ADE80] font-mono">
+                      <span className="text-[10px] uppercase font-bold tracking-wider text-[#00C3FF] font-mono">
                         {cert.category}
                       </span>
                       <h4 className="text-base font-bold uppercase font-display text-white mt-0.5">
                         {cert.title}
                       </h4>
                     </div>
-                    <div className="p-2 rounded-xl bg-[#1a1a1a] text-[#4ADE80] border border-[#2a2a2a] shrink-0">
+                    <div className="p-2 rounded-xl bg-[#1a1a1a] text-[#00C3FF] border border-[#2a2a2a] shrink-0">
                       <ShieldCheck className="w-4 h-4" />
                     </div>
                   </div>
@@ -118,7 +138,7 @@ export default function EducationCertifications() {
                       </span>
                     ))}
                   </div>
-                </div>
+                </motion.div>
               ))}
             </div>
           </div>

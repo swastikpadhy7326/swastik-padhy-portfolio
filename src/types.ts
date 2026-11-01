@@ -61,4 +61,5 @@ export interface ContactInfo {
   university: string;
   expectedGraduation: string;
   cgpa: string;
+  avatarUrl?: string;
 }

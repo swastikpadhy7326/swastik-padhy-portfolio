@@ -12,6 +12,7 @@ export const personalInfo: ContactInfo = {
   university: "National Institute of Science and Technology (NIST)",
   expectedGraduation: "2028",
   cgpa: "7.65 / 10",
+  avatarUrl: "/assets/aistudio/portfolio_photo_61c5f2ec.jpeg",
 };
 
 export const bioSummary = {

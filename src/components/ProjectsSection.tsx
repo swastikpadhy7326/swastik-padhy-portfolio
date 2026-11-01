@@ -1,28 +1,36 @@
 import { useState } from 'react';
+import { motion, AnimatePresence } from 'motion/react';
 import { projects } from '../data/portfolioData';
-import { Project } from '../types';
 import ScholarshipMatcherDemo from './ScholarshipMatcherDemo';
 import SpotifyMiniPlayer from './SpotifyMiniPlayer';
 import AuraWorkspaceDemo from './AuraWorkspaceDemo';
 import { 
   FolderGit2, Github, ExternalLink, Sparkles, Layers, 
-  Database, Server, Cpu, CheckCircle2, ChevronRight, Play, Eye
+  CheckCircle2, Play, Eye, ChevronDown, ChevronUp
 } from 'lucide-react';
 
 export default function ProjectsSection() {
   const [activeDemoId, setActiveDemoId] = useState<string | null>('aura-ai-workspace');
-  const [selectedProjectModal, setSelectedProjectModal] = useState<Project | null>(null);
 
   const toggleDemo = (id: string) => {
     setActiveDemoId(activeDemoId === id ? null : id);
   };
 
   return (
-    <section id="projects" className="py-16 md:py-24 border-b border-[#222222] relative">
+    <section id="projects" className="py-16 md:py-24 border-b border-[#222222] relative overflow-hidden">
+      {/* Background Subtle Ambient Glow */}
+      <div className="absolute top-1/4 left-1/3 w-96 h-96 bg-[#4ADE80]/5 blur-[150px] rounded-full pointer-events-none -z-10" />
+
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         
         {/* Section Header */}
-        <div className="flex flex-col items-center text-center mb-12">
+        <motion.div 
+          initial={{ opacity: 0, y: 25 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.5 }}
+          className="flex flex-col items-center text-center mb-12"
+        >
           <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full text-xs font-bold uppercase font-mono tracking-wider bg-[#141414] text-[#4ADE80] border border-[#222222] mb-3">
             <FolderGit2 className="w-3.5 h-3.5" />
             <span>03 // Featured Works</span>
@@ -33,14 +41,19 @@ export default function ProjectsSection() {
           <p className="text-sm sm:text-base text-[#999999] max-w-2xl mt-3">
             Hands-on full-stack systems demonstrating backend API development, database architecture, and team collaboration.
           </p>
-        </div>
+        </motion.div>
 
         {/* Projects Cards List */}
         <div className="space-y-12">
           {projects.map((project, index) => (
-            <div
+            <motion.div
               key={project.id}
-              className="bg-[#121212] border border-[#222222] rounded-3xl p-6 sm:p-8 md:p-10 transition-all hover:border-[#4ADE80] duration-300"
+              initial={{ opacity: 0, y: 35 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true, margin: "-50px" }}
+              transition={{ duration: 0.5, delay: index * 0.1 }}
+              whileHover={{ borderColor: "#00C3FF" }}
+              className="bg-[#121212] border border-[#222222] rounded-3xl p-6 sm:p-8 md:p-10 transition-colors duration-300 shadow-xl"
             >
               <div className="grid grid-cols-1 lg:grid-cols-12 gap-8">
                 
@@ -92,7 +105,7 @@ export default function ProjectsSection() {
                       {project.techStack.map((tech) => (
                         <span
                           key={tech}
-                          className="px-3 py-1 rounded-lg text-xs font-mono font-bold bg-[#181818] text-[#F5F5F5] border border-[#2a2a2a]"
+                          className="px-3 py-1 rounded-lg text-xs font-mono font-bold bg-[#181818] text-[#F5F5F5] border border-[#2a2a2a] hover:border-[#00C3FF] transition-colors"
                         >
                           {tech}
                         </span>
@@ -102,19 +115,24 @@ export default function ProjectsSection() {
 
                   {/* Action Buttons */}
                   <div className="flex flex-wrap items-center gap-3 pt-2">
-                    <button
+                    <motion.button
+                      whileHover={{ scale: 1.03 }}
+                      whileTap={{ scale: 0.97 }}
                       onClick={() => toggleDemo(project.id)}
                       className={`px-5 py-3 rounded-xl text-xs font-black uppercase tracking-wider transition-all flex items-center gap-2 ${
                         activeDemoId === project.id
-                          ? 'bg-[#4ADE80] text-black shadow-lg shadow-[#4ADE80]/10'
+                          ? 'bg-[#4ADE80] text-black shadow-lg shadow-[#4ADE80]/20'
                           : 'bg-[#181818] hover:bg-[#222222] text-white border border-[#2a2a2a] hover:border-[#4ADE80]'
                       }`}
                     >
                       <Play className="w-3.5 h-3.5 fill-current" />
                       <span>{activeDemoId === project.id ? 'Hide Interactive Demo' : 'Launch Interactive Demo'}</span>
-                    </button>
+                      {activeDemoId === project.id ? <ChevronUp className="w-3.5 h-3.5" /> : <ChevronDown className="w-3.5 h-3.5" />}
+                    </motion.button>
 
-                    <a
+                    <motion.a
+                      whileHover={{ scale: 1.03 }}
+                      whileTap={{ scale: 0.97 }}
                       href={project.githubUrl}
                       target="_blank"
                       rel="noopener noreferrer"
@@ -122,7 +140,7 @@ export default function ProjectsSection() {
                     >
                       <Github className="w-4 h-4 text-[#4ADE80]" />
                       <span>GitHub Repo</span>
-                    </a>
+                    </motion.a>
                   </div>
                 </div>
 
@@ -167,7 +185,7 @@ export default function ProjectsSection() {
                   {project.metrics && (
                     <div className="grid grid-cols-2 sm:grid-cols-3 gap-2">
                       {project.metrics.map((m, idx) => (
-                        <div key={idx} className="p-3 rounded-xl bg-[#0a0a0a] border border-[#222222] text-center">
+                        <div key={idx} className="p-3 rounded-xl bg-[#0a0a0a] border border-[#222222] text-center hover:border-[#00C3FF] transition-colors">
                           <div className="text-[10px] text-[#888888] font-mono uppercase">{m.label}</div>
                           <div className="text-xs font-black font-display text-white mt-0.5 truncate">{m.value}</div>
                         </div>
@@ -178,16 +196,26 @@ export default function ProjectsSection() {
 
               </div>
 
-              {/* Embedded Interactive Demo Area */}
-              {activeDemoId === project.id && (
-                <div className="mt-8 pt-6 border-t border-[#222222] animate-in fade-in slide-in-from-top-4 duration-300">
-                  {project.id === 'aura-ai-workspace' && <AuraWorkspaceDemo />}
-                  {project.id === 'meritus' && <ScholarshipMatcherDemo />}
-                  {project.id === 'spotify-clone' && <SpotifyMiniPlayer />}
-                </div>
-              )}
+              {/* Embedded Interactive Demo Area with Smooth Motion */}
+              <AnimatePresence>
+                {activeDemoId === project.id && (
+                  <motion.div
+                    initial={{ opacity: 0, height: 0 }}
+                    animate={{ opacity: 1, height: "auto" }}
+                    exit={{ opacity: 0, height: 0 }}
+                    transition={{ duration: 0.35, ease: "easeInOut" }}
+                    className="overflow-hidden"
+                  >
+                    <div className="mt-8 pt-6 border-t border-[#222222]">
+                      {project.id === 'aura-ai-workspace' && <AuraWorkspaceDemo />}
+                      {project.id === 'meritus' && <ScholarshipMatcherDemo />}
+                      {project.id === 'spotify-clone' && <SpotifyMiniPlayer />}
+                    </div>
+                  </motion.div>
+                )}
+              </AnimatePresence>
 
-            </div>
+            </motion.div>
           ))}
         </div>
 
